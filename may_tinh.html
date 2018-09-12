@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy Tính</title>
+</head>
+<body>
+<h2>Caculator</h2>
+    <form>
+        <table>
+            <tr>
+                <th><input id="first" type="text" name="first"/></th>
+                <th><select id="pheptinh">
+                    <option value="cong">cộng</option>
+                    <option value="tru">trừ</option>
+                    <option value="nhan">nhân</option>
+                    <option value="chia">chia</option>
+                </select>
+                <th><input id="second" type="text" name="second"/></th>
+                <th>=</th>
+                <th><label id="end"></label></th>
+            </tr>
+                <th>
+                    <button value="tinhtoan" onclick="tinhtoan();" type="button">tính toán</button>
+                </th>
+            </tr>
+        </table>
+    </form>
+
+<script>
+    function tinhtoan() {
+        let first = document.getElementById('first');
+        let second = document.getElementById('second');
+        let ketqua = 0;
+        let pheptinh = document.getElementById("pheptinh");
+        let end = document.getElementById('end');
+        let pheptinhduocchon = pheptinh.options[pheptinh.selectedIndex].value;
+        switch (pheptinhduocchon) {
+            case 'cong':{
+                ketqua = parseInt(first.value) + parseInt(second.value);
+                break;
+            }
+            case 'tru':{
+                ketqua = parseInt(first.value) - parseInt(second.value);
+                break;
+            }
+            case 'nhan':{
+                ketqua = parseInt(first.value) * parseInt(second.value);
+                break;
+            }
+            case 'chia':{
+                ketqua = parseInt(first.value) / parseInt(second.value);
+                break;
+            }
+
+        }
+        end.innerHTML = ketqua.toString();
+
+    }
+</script>
+</body>
+</html>
